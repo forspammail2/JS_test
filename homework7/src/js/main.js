@@ -2,80 +2,46 @@
 //Задание по проекту
 
 // Получить кнопку "Начать расчет" через id
-let btnOpen = document.getElementById('start');
-console.log(btnOpen);
+let btnStart = document.getElementById('start'),
+    budgetValue = document.body.getElementsByClassName("budget-value")[0],
+    dayBudgetValue = document.body.getElementsByClassName("daybudget-value")[0],
+    levelValue = document.body.getElementsByClassName("level-value")[0],
+    expensesValue = document.body.getElementsByClassName("expenses-value")[0],
+    optionalExpensesValue = document.body.getElementsByClassName("optionalexpenses-value")[0],
+    incomeValue = document.body.getElementsByClassName("income-value")[0],
+    monthSavingsValue = document.body.getElementsByClassName("monthsavings-value")[0],
+    yearSavingsValue = document.body.getElementsByClassName("yearsavings-value")[0],
 
 
-// Получить все блоки в правой части программы через классы (которые имеют класс название - value, начиная с и заканчивая)
-let listBlockValue = [];
-//let block_value = document.body.getElementsByClassName("result");
-let blockValue = document.body.getElementsByClassName("result-table");
-if (blockValue.length > 0) {
-    let childs = blockValue[0].childNodes;
-    for (let item of childs) {
-        //console.log("className: " + item.className);
-        let className = item.className + "";
-        if (className.includes("-value")) {
-            //console.log(className);
-            listBlockValue.push(item);
-        }
-    }
-}
+    expensesItem = document.body.getElementsByClassName("expenses-item"),
+    expensesBtn = document.getElementsByTagName("button")[0],
+    optionalExpensesBtn = document.getElementsByTagName("button")[1],
+    countExpensesBtn = document.getElementsByTagName("button")[2],
+    incomeItem = document.body.querySelectorAll(".choose-income"),
+    checkSaving = document.body.querySelector("#savings"),
+    sumValue = document.body.querySelector(".choose-sum"),
+    percentValue = document.body.querySelector(".choose-percent"),
+    yearValue = document.body.querySelector(".year-value"),
+    monthValue = document.body.querySelector(".month-value"),
+    dayValue = document.body.querySelector(".day-value");
 
-console.log(listBlockValue);
-
-
-// Получить поля(input) c обязательными расходами через класс.(class = ”expenses - item”)
-let listExpensesItem = [];
-//let block_value = document.body.getElementsByClassName("result");
-let inputExpensesItem = document.body.getElementsByClassName("expenses-item");
-if (inputExpensesItem.length > 0) {
-    //let childs = inputExpensesItem[0].childNodes;
-    for (let item of inputExpensesItem) {
-        //console.log("className: " + item.className);
-        let className = item.className + "";
-        if (className.includes("expenses-item")) {
-            //console.log(className);
-            listExpensesItem.push(item);
-        }
-    }
-}
-
-console.log(listExpensesItem);
-
-// Получить кнопки“ Утвердить” и“ Рассчитать” через Tag, каждую в своей переменной.
-let btnApprove = document.querySelector('.expenses-item-btn');
-console.log(btnApprove);
-
-let btnApproveOptional = document.querySelector('.optionalexpenses-btn');
-console.log(btnApproveOptional);
-
-let btnCountBudget = document.querySelector('.count-budget-btn');
-console.log(btnCountBudget);
-
-// Получить поля для ввода необязательных расходов(optionalexpenses - item) при помощи querySelectorAll
-//let block_value = document.body.getElementsByClassName("result");
-let inputItemOptional = document.body.querySelectorAll(".optionalexpenses-item");
-console.log(inputItemOptional);
-
-// Получить оставшиеся поля через querySelector(статьи возможного дохода, чекбокс, сумма, процент, год, месяц, день)
-let inputChooseIncome = document.body.querySelector(".choose-income");
-console.log(inputChooseIncome);
-
-let checkboxSavings = document.body.querySelector("#savings");
-console.log(checkboxSavings);
-
-let inputChooseSum = document.body.querySelector(".choose-sum");
-console.log(inputChooseSum);
-
-let inputChoosePercent = document.body.querySelector(".choose-percent");
-console.log(inputChoosePercent);
-
-let inputChooseTear = document.body.querySelector(".year-value");
-console.log(inputChoosePercent);
-
-let inputMonth = document.body.querySelector(".month-value");
-console.log(inputMonth);
-
-let inputDay = document.body.querySelector(".day-value");
-console.log(inputDay);
+console.log(btnStart);
+console.log(budgetValue);
+console.log(dayBudgetValue);
+console.log(levelValue);
+console.log(expensesValue);
+console.log(optionalExpensesValue);
+console.log(incomeValue);
+console.log(monthSavingsValue);
+console.log(yearSavingsValue);
+console.log(expensesItem);
+console.log(expensesBtn);
+console.log(optionalExpensesBtn);
+console.log(countExpensesBtn);
+console.log(incomeItem);
+console.log(checkSaving);
+console.log(sumValue);
+console.log(percentValue);
+console.log(yearValue);
+console.log(monthValue);
+console.log(dayValue);
