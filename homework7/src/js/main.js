@@ -26,7 +26,61 @@ let btnStart = document.getElementById('start'),
 
 let money, time;
 
+document.addEventListener("DOMContentLoaded", function () {
+    setDisabled();
+});
+
+function removeDisabled() {
+    for (let i = 0; i < expensesItem.length; i++) {
+        expensesItem[i].removeAttribute('disabled');
+    }
+
+    btnExpenses.removeAttribute('disabled');
+
+    for (let i = 0; i < optionalExpensesItem.length; i++) {
+        optionalExpensesItem[i].removeAttribute('disabled');
+    }
+
+    btnOptionalExpenses.removeAttribute('disabled');
+
+    btnCount.removeAttribute('disabled');
+
+    incomeItem.removeAttribute('disabled');
+
+    checkSaving.removeAttribute('disabled');
+
+    sumValue.removeAttribute('disabled');
+
+    percentValue.removeAttribute('disabled');
+}
+
+function setDisabled() {
+    for (let i = 0; i < expensesItem.length; i++) {
+        expensesItem[i].setAttribute('disabled', "disabled");
+    }
+
+    btnExpenses.setAttribute('disabled', "disabled");
+
+    for (let i = 0; i < optionalExpensesItem.length; i++) {
+        optionalExpensesItem[i].setAttribute('disabled', "disabled");
+    }
+
+    btnOptionalExpenses.setAttribute('disabled', "disabled");
+
+    btnCount.setAttribute('disabled', "disabled");
+
+    incomeItem.setAttribute('disabled', "disabled");
+
+    checkSaving.setAttribute('disabled', "disabled");
+
+    sumValue.setAttribute('disabled', "disabled");
+
+    percentValue.setAttribute('disabled', "disabled");
+}
+
 btnStart.addEventListener('click', function () {
+    removeDisabled();
+
     time = prompt("Введите дату в формате YYYY-MM-DD", "2020-05-08");
     money = +prompt("Ваш бюджет на месяц?", "100");
 
@@ -76,11 +130,13 @@ btnOptionalExpenses.addEventListener('click', function () {
 
 btnCount.addEventListener('click', function () {
     if (appData.budget != undefined) {
-        appData.moneyPerDay = (appData.budget / 30).toFixed();
+        let buf = expensesValue.textContent;
+        let sum = parseInt(expensesValue.textContent);
+        appData.moneyPerDay = ((appData.budget - sum) / 30).toFixed();
         dayBudgetValue.textContent = appData.moneyPerDay;
 
         if (appData.moneyPerDay < 100) {
-            levelValue.textContent = "МИнимальный уровень достатка!";
+            levelValue.textContent = "Минимальный уровень достатка!";
         } else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
             levelValue.textContent = "Средний уровень достатка!";
         } else if (appData.moneyPerDay > 2000) {
