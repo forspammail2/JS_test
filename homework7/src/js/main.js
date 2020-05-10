@@ -130,7 +130,6 @@ btnOptionalExpenses.addEventListener('click', function () {
 
 btnCount.addEventListener('click', function () {
     if (appData.budget != undefined) {
-        let buf = expensesValue.textContent;
         let sum = parseInt(expensesValue.textContent);
         appData.moneyPerDay = ((appData.budget - sum) / 30).toFixed();
         dayBudgetValue.textContent = appData.moneyPerDay;
