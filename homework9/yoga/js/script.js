@@ -34,14 +34,15 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    let deadLine = "2018-10-21";
+    let deadLine = "2020-05-14";
 
     function getTimeRemaining(endtime) {
         let t = Date.parse(endtime) - Date.parse(new Date()),
             seconds = Math.floor((t / 1000) % 60),
             minutes = Math.floor((t / 1000 / 60) % 60),
-            hours = Math.floor((t / 1000 * 60 * 60));
-        // 
+            hours = Math.floor((t / (1000 * 60 * 60)));
+        // let hours2 = Math.floor((t / 1000 / 60 / 60) % 24),
+        //     days = Math.floor((t / (1000 * 60 * 60 * 24)));
 
         return {
             'total': t,
@@ -54,7 +55,7 @@ window.addEventListener('DOMContentLoaded', function () {
     function setClock(id, endtime) {
         let timer = document.getElementById(id),
             hours = timer.querySelector('.hours'),
-            minutes = timer.querySelector('minutes'),
+            minutes = timer.querySelector('.minutes'),
             seconds = timer.querySelector('.seconds'),
             timeInterval = setInterval(updateClock, 1000);
 
