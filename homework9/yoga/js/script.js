@@ -34,7 +34,7 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    let deadLine = "2020-05-14";
+    let deadLine = "2020-05-12";
 
     function getTimeRemaining(endtime) {
         let t = Date.parse(endtime) - Date.parse(new Date()),
@@ -61,9 +61,35 @@ window.addEventListener('DOMContentLoaded', function () {
 
         function updateClock() {
             let t = getTimeRemaining(endtime);
-            hours.textContent = t.hours;
-            minutes.textContent = t.minutes;
-            seconds.textContent = t.seconds;
+            if (t.hours >= 0) {
+                if (t.hours < 10) {
+                    hours.textContent = "0" + t.hours;
+                } else {
+                    hours.textContent = t.hours;
+                }
+            } else {
+                hours.textContent = "00";
+            }
+            if (t.minutes >= 0) {
+                if (t.minutes < 10) {
+                    minutes.textContent = "0" + t.minutes;
+                } else {
+                    minutes.textContent = t.minutes;
+                }
+
+            } else {
+                minutes.textContent = "00";
+            }
+            if (t.seconds >= 0) {
+                seconds.textContent = t.seconds;
+                if (t.seconds < 10) {
+                    seconds.textContent = "0" + t.seconds;
+                } else {
+                    seconds.textContent = t.seconds;
+                }
+            } else {
+                seconds.textContent = "00";
+            }
 
             if (t.total <= 0) {
                 clearInterval(timeInterval);
